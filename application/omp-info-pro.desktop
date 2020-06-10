@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Info Pro
+X-MeeGo-Logical-Id=info_pro-ap-name
+X-MeeGo-Translation-Catalog=omp-info-pro
+X-Nemo-Application-Type=silica-qt5
+Icon=omp-info-pro
+Exec=omp-info-pro
+Comment=OMP Info Pro
+
+Name[ru]=Инфо ПРО

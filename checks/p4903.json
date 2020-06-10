@@ -1,0 +1,67 @@
+{
+    "checks": [
+        {
+            "name": "Version OS",
+            "targetValue": "Aurora 3.2.1"
+        },
+        {
+            "name": "Build for device",
+            "targetValue": "INOI P4903"
+        },
+        {
+            "name": "Battery",
+            "targetValue": 10
+        },
+        {
+            "name": "CPU clock",
+            "targetValue": 1267
+        },
+        {
+            "name": "Number cores",
+            "targetValue": 4
+        },
+        {
+            "name": "RAM",
+            "targetValue": 2006114290
+        },
+        {
+            "name": "Flash memory",
+            "targetValue": 12179267584
+        },
+        {
+            "name": "Sd Card",
+            "targetValue": 8589934592
+        },
+        {
+            "name": "Sim Card",
+            "targetValue": ""
+        },
+        {
+            "name": "Camera resolution",
+            "targetValue": "8"
+        },
+        {
+            "name": "Screen resolution",
+            "targetValue": "720x1280"
+        },
+        {
+            "name": "Bluetooth",
+            "targetValue": true
+        },
+        {
+            "name": "Wi-Fi",
+            "targetValue": true
+        },
+        {
+            "name": "GNSS",
+            "targetValue": true
+        },
+        {
+            "name": "NFC",
+            "targetValue": false
+        }
+    ],
+    "device": "p4903",
+    "revision": "1",
+    "docTypes": [ "application/msword" ]
+}

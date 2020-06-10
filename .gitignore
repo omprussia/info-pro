@@ -1,0 +1,15 @@
+/application/omp-info-pro
+/translations/omp-info-pro.ts
+/tools/save-reference
+*.qm
+*.user*
+*.rpm
+*.o
+*.so
+*.so.*
+*.moc
+moc_*
+*.list
+*Makefile
+.vscode
+*.autosave

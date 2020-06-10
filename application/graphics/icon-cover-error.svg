@@ -1,0 +1,24 @@
+<svg width="86" height="87" viewBox="0 0 86 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<path d="M85.7 84.7226C85.7 85.5086 85.063 86.1456 84.277 86.1456H1.72299C0.936988 86.1456 0.299988 85.5086 0.299988 84.7226V2.1686C0.299988 1.38261 0.936988 0.745605 1.72299 0.745605H84.276C85.062 0.745605 85.699 1.38261 85.699 2.1686V84.7226H85.7Z" fill="url(#paint0_radial)"/>
+<path d="M75 43.4458C75 25.7727 60.6731 11.4458 43 11.4458C25.3269 11.4458 11 25.7727 11 43.4458C11 61.1189 25.3269 75.4458 43 75.4458C60.6731 75.4458 75 61.1189 75 43.4458Z" fill="url(#paint1_radial)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M58.3409 26.1214C57.1693 24.9498 55.2699 24.9498 54.0983 26.1214L42.5786 37.641L31.0589 26.1214C29.8874 24.9498 27.9879 24.9498 26.8163 26.1214L25.1213 27.8163C23.9498 28.9879 23.9498 30.8874 25.1213 32.059L36.641 43.5786L25.1213 55.0983C23.9497 56.2699 23.9497 58.1694 25.1213 59.341L26.8163 61.0359C27.9878 62.2075 29.8873 62.2075 31.0589 61.0359L42.5786 49.5162L54.0983 61.0359C55.2699 62.2075 57.1694 62.2075 58.341 61.0359L60.0359 59.341C61.2075 58.1694 61.2075 56.2699 60.0359 55.0983L48.5162 43.5786L60.0359 32.059C61.2075 30.8874 61.2075 28.9879 60.0359 27.8163L58.3409 26.1214Z" fill="url(#paint2_radial)"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43 -5.5542) rotate(90) scale(100)">
+<stop offset="0.0001" stop-color="#FF6D6D"/>
+<stop offset="1" stop-color="#E13232"/>
+</radialGradient>
+<radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43 3.20337) rotate(90) scale(85.8182)">
+<stop stop-color="#3E3E3E"/>
+<stop offset="1" stop-color="#121212"/>
+</radialGradient>
+<radialGradient id="paint2_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(42.5786 5) rotate(90) scale(75.5)">
+<stop offset="0.0001" stop-color="#FF8C8C"/>
+<stop offset="1" stop-color="#D72121"/>
+</radialGradient>
+<clipPath id="clip0">
+<rect y="0.445801" width="86" height="86" fill="white"/>
+</clipPath>
+</defs>
+</svg>
