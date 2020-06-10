@@ -57,6 +57,7 @@ rm -rf %{_builddir}/application/256x256
 %files
 %defattr(-,root,root,-)
 %{_bindir}/%{name}
+%defattr(0644,root,root,-)
 %{_datadir}/%{name}/main.qml
 %{_datadir}/%{name}/pages
 %{_datadir}/%{name}/cover
