@@ -24,7 +24,7 @@ function roundToMbytes(bytes) {
 }
 
 function incGbToMbytes(bytes) {
-    return bytes + 1024
+    return roundToMbytes(bytes) + 1024
 }
 
 
