@@ -114,7 +114,7 @@
         <location filename="../installroot/usr/share/omp-info-pro/checks/Sim Card.qml" line="64"/>
         <location filename="../installroot/usr/share/omp-info-pro/pages/StatusBar.qml" line="127"/>
         <source>SIM card not installed</source>
-        <translation>SIM карта не установлена</translation>
+        <translation>SIM-карта не установлена</translation>
     </message>
     <message id="info_pro-la-turn_off_wifi">
         <location filename="../application/qml/pages/StatusBar.qml" line="130"/>
