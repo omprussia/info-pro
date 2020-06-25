@@ -1,7 +1,7 @@
 Name:       omp-info-pro
 
 Summary:    OMP Info Pro Application
-Version:    0.1.0
+Version:    0.4.0
 Release:    1
 Group:      Applications
 License:    MIT
