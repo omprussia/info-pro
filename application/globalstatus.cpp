@@ -143,17 +143,15 @@ QString GlobalStatus::report() const
 {
     QStringList report;
     report << statusToString(status());
+
     for (auto it = m_statuses.begin(); it != m_statuses.end(); ++it) {
-        QString reportItem("%1 (status: %2 value: %3 targteValue: %4)");
-        reportItem = reportItem.arg(it.key());
-        reportItem = reportItem.arg(statusToString(it->status));
+        const auto value = it->status == DeclarativeCheckStatus::Unknown
+                               ? unknownStatusToString(it->value)
+                               : it->value.toString();
 
-        if (it->status == DeclarativeCheckStatus::Unknown)
-            reportItem = reportItem.arg(unknownStatusToString(it->value));
-        else
-            reportItem = reportItem.arg(it->value.toString());
+        QString reportItem("\n%1 - status: %2\nvalue: %3 | targetValue: %4");
+        reportItem = reportItem.arg(it.key(), statusToString(it->status), value, it->targetValue.toString());
 
-        reportItem = reportItem.arg(it->targetValue.toString());
         report << reportItem;
     }
     return report.join("\n");
