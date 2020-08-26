@@ -21,7 +21,7 @@
 #include <QNetworkRequest>
 #include <QNetworkConfiguration>
 
-static auto REQUEST_ADDRESS = QUrl(QStringLiteral("https://rt.ru"));
+static auto REQUEST_ADDRESS = QUrl(QStringLiteral("https://hc.dms.cloud.rt.ru"));
 static const int INTERVAL_ONLINE_CHECK = 30 * 1000; // 30 sec
 
 CheckInternet::CheckInternet(QObject *parent)
@@ -71,13 +71,9 @@ void CheckInternet::check()
         }
 
         int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-        auto shortlink = REQUEST_ADDRESS.toString(QUrl::RemoveScheme | QUrl::RemovePath).replace("/","");
-        auto location = reply->header(QNetworkRequest::LocationHeader).toString();
 
         if (reply->error() == QNetworkReply::NoError
-                && reply->bytesAvailable()
-                && (statusCode == 200 || statusCode == 301 || statusCode == 302)
-                && location.contains(shortlink)) {
+            && (statusCode == 200 || statusCode == 204 || statusCode == 301 || statusCode == 302)) {
             setConnected(true);
             qDebug() << "You are connected to the internet :" << statusCode;
         } else {
