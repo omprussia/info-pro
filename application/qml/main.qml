@@ -37,13 +37,19 @@ ApplicationWindow {
     }
 
     property var backend: DBusInterface {
-       bus: DBus.SystemBus
+       bus: DBus.SessionBus
        service: "ru.omprussia.deviceinfo"
        path: "/ru/omprussia/deviceinfo"
        iface: "ru.omprussia.deviceinfo"
+       propertiesEnabled: true
+       property bool ready
 
        function update() {
            call("Update")
        }
-   }
+
+       onReadyChanged: {
+           DevInfoModel.loadDeviceInfoFile()
+       }
+    }
 }

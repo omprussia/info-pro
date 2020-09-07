@@ -26,7 +26,7 @@
 
 namespace {
     const auto CHECKS_PATH = QStringLiteral("/usr/share/omp-info-pro/checks");
-    const auto DEVICE_INFO_PATH = QStringLiteral("/usr/share/device-info/deviceinfo.json");
+    const auto DEVICE_INFO_PATH = QStandardPaths::locate(QStandardPaths::TempLocation, "deviceinfo.json");
 }
 
 struct Check {
@@ -45,14 +45,7 @@ DevInfoModel::DevInfoModel(QObject *parent)
     , m_checks()
     , m_path(CHECKS_PATH)
 {
-    readDeviceInfo();
-    updateChecksList();
-    m_deviceInfoWatcher.addPath(DEVICE_INFO_PATH);
-
-    connect(&m_deviceInfoWatcher, &QFileSystemWatcher::fileChanged, [=] {
-        readDeviceInfo();
-        update();
-    });
+    loadDeviceInfoFile();
 }
 
 DevInfoModel::~DevInfoModel()
@@ -149,6 +142,19 @@ void DevInfoModel::setPrettyName(QString prettyName)
 
     m_prettyName = prettyName;
     emit prettyNameChanged(m_prettyName);
+}
+
+void DevInfoModel::loadDeviceInfoFile()
+{
+    readDeviceInfo();
+    updateChecksList();
+    m_deviceInfoWatcher.removePaths(m_deviceInfoWatcher.files());
+    m_deviceInfoWatcher.addPath(DEVICE_INFO_PATH);
+
+    connect(&m_deviceInfoWatcher, &QFileSystemWatcher::fileChanged, [=] {
+        readDeviceInfo();
+        update();
+    });
 }
 
 void DevInfoModel::updateChecksList()

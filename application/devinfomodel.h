@@ -58,6 +58,7 @@ public slots:
     void reload();
     QVariant getParam(const QString &key) const;
     void setPrettyName(QString prettyName);
+    void loadDeviceInfoFile();
 
 signals:
     void pathChanged(const QString &path);  
