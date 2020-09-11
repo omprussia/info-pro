@@ -45,12 +45,14 @@ Page {
                 color: DevInfoModel.availableConfig ? Theme.highlightColor : Theme.errorColor
                 wrapMode: Text.WordWrap
                 horizontalAlignment: Text.AlignHCenter
-
+                visible: !busyIndicator.visible
                 text: DevInfoModel.availableConfig
                       //% "Welcome!"
                       ? qsTrId("info_pro-le-welcom")
                       //% "Your device is not supported."
                       : qsTrId("info_pro-le-device_not_support")
+                opacity: visible ? 1.0 : 0.0
+                Behavior on opacity { FadeAnimation {} }
             }
 
             Label {
@@ -62,8 +64,25 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
                 //% "The application is designed to obtain information about the characteristics of the device"
                 text: qsTrId("info_pro-le-welcom_description") + " " + DevInfoModel.prettyName
+                opacity: visible ? 1.0 : 0.0
+                Behavior on opacity { FadeAnimation {} }
             }
         }
+
+        BusyIndicator {
+            id: busyIndicator
+            anchors.horizontalCenter: parent.horizontalCenter
+            running: !DevInfoModel.availableConfig
+            visible: running
+            size: BusyIndicatorSize.Large
+        }
+
+        Timer {
+            running: !DevInfoModel.availableConfig
+            interval: 2000
+            onTriggered: busyIndicator.running = false
+        }
+
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
             visible: DevInfoModel.availableConfig
@@ -72,6 +91,8 @@ Page {
             horizontalAlignment: Text.AlignHCenter
             //% "For information, click button"
             text: qsTrId("info_pro-le-welcom_recommendation")
+            opacity: visible ? 1.0 : 0.0
+            Behavior on opacity { FadeAnimation {} }
         }
 
         Button {
@@ -81,6 +102,8 @@ Page {
             //% "Start"
             text: qsTrId("info_pro-bt-start")
             onClicked: pageStack.push(Qt.resolvedUrl("ChecksPage.qml"), {}, PageStackAction.Animated)
+            opacity: visible ? 1.0 : 0.0
+            Behavior on opacity { FadeAnimation {} }
         }
     }
     GearsBackground {

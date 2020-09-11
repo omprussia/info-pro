@@ -26,7 +26,7 @@
 
 namespace {
     const auto CHECKS_PATH = QStringLiteral("/usr/share/omp-info-pro/checks");
-    const auto DEVICE_INFO_PATH = QStandardPaths::locate(QStandardPaths::TempLocation, "deviceinfo.json");
+    const auto DEVICE_INFO_PATH = QStringLiteral("/tmp/deviceinfo.json");
 }
 
 struct Check {
@@ -241,6 +241,7 @@ void DevInfoModel::readDeviceInfo()
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
     m_deviceInfo = doc.object();
     setPrettyName(m_deviceInfo.value("deviceName").toString());
+    emit availableConfigChanged(availableConfig());
 }
 
 void DevInfoModel::update()

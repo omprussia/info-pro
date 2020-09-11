@@ -53,11 +53,11 @@ void Reporter::sendReport()
 
     auto report = m_globalStatus->report();
 
-    if (QDBusConnection::systemBus().interface()->isServiceRegistered(DBUS_SERVICE)) {
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered(DBUS_SERVICE)) {
         if (m_globalStatus->status() == DeclarativeCheckStatus::Successful) {
             QDBusMessage logOkMessage = QDBusMessage::createMethodCall(DBUS_SERVICE, DBUS_OBJECT, DBUS_IFACE, DBUS_METHOD_OK);
             logOkMessage.setArguments({report});
-            QDBusReply<void> reply = QDBusConnection::systemBus().call(logOkMessage);
+            QDBusReply<void> reply = QDBusConnection::sessionBus().call(logOkMessage);
 
             if (!reply.isValid()) {
                 qWarning() << reply.error().message();
@@ -65,7 +65,7 @@ void Reporter::sendReport()
         } else {
             QDBusMessage logErrorMessage = QDBusMessage::createMethodCall(DBUS_SERVICE, DBUS_OBJECT, DBUS_IFACE, DBUS_METHOD_ERROR);
             logErrorMessage.setArguments({report});
-            QDBusReply<void> reply = QDBusConnection::systemBus().call(logErrorMessage);
+            QDBusReply<void> reply = QDBusConnection::sessionBus().call(logErrorMessage);
 
             if (!reply.isValid()) {
                 qWarning() << reply.error().message();

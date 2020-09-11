@@ -33,7 +33,7 @@ RowLayout {
 
     StatusImage {
         Layout.alignment: Qt.AlignTop
-        status: globalStatus.status
+        status: root.status
         size: Theme.iconSizeLarge
     }
     Column {
@@ -71,16 +71,20 @@ RowLayout {
     Button {
         Layout.alignment: isPhone && isPortrait ? Qt.AlignVCenter : Qt.AlignTop
         visible: !(isPortrait && isPhone)
-        enabled: !repeatLater.running
+        enabled: status !== CheckStatus.Wait
         preferredWidth: Theme.buttonWidthSmall
         //% "Repeat"
         text: qsTrId("info_pro-bt-repeat")
-        onClicked: repeatLater.start()
+        onClicked: {
+            root.repeat()
+            status = CheckStatus.Wait
+            waitTimer.start()
+        }
 
         Timer {
-            id: repeatLater
-            interval: 500
-            onTriggered: root.repeat()
+            id: waitTimer
+            interval: 1000
+            onTriggered: status = Qt.binding(function() { return globalStatus.status })
         }
     }
 
